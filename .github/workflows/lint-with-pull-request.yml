@@ -1,3 +1,5 @@
+# Practising workflows with branch protection
+
 name: Lint when Pull Request
 
 on:
