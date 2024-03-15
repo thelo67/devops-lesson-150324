@@ -11,18 +11,22 @@ env:
 jobs:
 
     linting: 
-        -   name: Linting
-            runs-on: ubuntu-latest
-            with: 
-                node-version: ${{env.NODE-VERSION}}
+        name: Linting
+        runs-on: ubuntu-latest
+        steps:
 
-        -   name: Code checkout
-            uses: actions/checkout@v3
+            - name: Install NodeJs
+              uses: actions/setup-node@v4
+              with: 
+                node-version: ${{env.NODE_VERSION}}
 
-        -   name Install dependencies
-            run: npm ci
+            - name: Code checkout
+              uses: actions/checkout@v4
 
-        -   name: Code linting
-            run: npm run lint
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Code linting
+              run: npm run lint
 
 
